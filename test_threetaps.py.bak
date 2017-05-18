@@ -4,13 +4,13 @@
 
 """Tests for threetaps."""
 
-
+from __future__ import unicode_literals
 import unittest
 import os
 import json
 from datetime import datetime
 try:
-    from urllib.parse import urljoin
+    from urlparse import urljoin
 except ImportError:
     from urllib.parse import urljoin
 import httpretty
@@ -42,7 +42,7 @@ class BaseTestCase(unittest.TestCase):
 
     def get_last_query(self):
         return {key: val[0] for key, val in
-                list(httpretty.last_request().querystring.items())}
+                httpretty.last_request().querystring.items()}
 
     def register_uri(self, uri):
         uri = urljoin(self.uri, uri)

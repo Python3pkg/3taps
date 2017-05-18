@@ -9,12 +9,12 @@ api.
 
 """
 
-
+from __future__ import unicode_literals
 import inspect
 import json
 import calendar
 try:
-    from urllib.parse import urljoin
+    from urlparse import urljoin
 except ImportError:
     from urllib.parse import urljoin
 import requests
